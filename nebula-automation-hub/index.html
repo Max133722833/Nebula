@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nebula Automation Hub</title>
+
+    <!-- Responsive / Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Basic meta -->
+    <meta name="description"
+          content="Nebula Automation Hub – portfolio demo of an AI-powered automation dashboard and workflow builder.">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+<div class="app-shell">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+            <div class="brand-dot"></div>
+            <div class="brand-text">
+                <span class="brand-name">Nebula</span>
+                <span class="brand-sub">Automation Hub</span>
+            </div>
+        </div>
+
+        <nav class="nav" role="navigation">
+            <button class="nav-item active" data-view="dashboard" type="button">
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item" data-view="workflows" type="button">
+                <span>Workflows</span>
+            </button>
+            <button class="nav-item" data-view="logs" type="button">
+                <span>Run Logs</span>
+            </button>
+            <button class="nav-item" data-view="settings" type="button">
+                <span>Settings</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>
+                Demo version for portfolio.<br>
+                AI-powered automations preview.
+            </p>
+        </div>
+    </aside>
+
+    <!-- MAIN AREA -->
+    <div class="main">
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="topbar-titles">
+                <h1 id="view-title">Dashboard</h1>
+                <p id="view-subtitle">High-level overview of your AI automations.</p>
+            </div>
+            <div class="topbar-actions">
+                <button id="new-workflow-btn" class="primary-btn" type="button">
+                    + New automation
+                </button>
+            </div>
+        </header>
+
+        <!-- VIEWS -->
+        <main class="content" role="main">
+            <!-- DASHBOARD VIEW -->
+            <section id="view-dashboard" class="view active-view" aria-label="Dashboard overview">
+                <div class="cards-row">
+                    <article class="metric-card glass-card">
+                        <p class="metric-label">Active automations</p>
+                        <p class="metric-value">4</p>
+                        <p class="metric-sub">Running across email, CRM and Slack.</p>
+                    </article>
+
+                    <article class="metric-card glass-card">
+                        <p class="metric-label">Messages handled by AI (24h)</p>
+                        <p class="metric-value">312</p>
+                        <p class="metric-sub">83% auto-resolved without human.</p>
+                    </article>
+
+                    <article class="metric-card glass-card">
+                        <p class="metric-label">Time saved this week</p>
+                        <p class="metric-value">18.4h</p>
+                        <p class="metric-sub">Estimated vs manual workflows.</p>
+                    </article>
+                </div>
+
+                <div class="panel-grid">
+                    <section class="panel glass-card" aria-label="Automation performance">
+                        <div class="panel-header">
+                            <h2>Automation performance</h2>
+                            <span class="pill">Demo data</span>
+                        </div>
+                        <div class="fake-chart">
+                            <div class="chart-bars">
+                                <div class="chart-bar" style="height: 40%"></div>
+                                <div class="chart-bar" style="height: 65%"></div>
+                                <div class="chart-bar" style="height: 53%"></div>
+                                <div class="chart-bar" style="height: 78%"></div>
+                                <div class="chart-bar" style="height: 61%"></div>
+                            </div>
+                            <div class="chart-legend">
+                                <span>Success rate over last 5 days</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel glass-card" aria-label="Top automations by impact">
+                        <div class="panel-header">
+                            <h2>Top automations by impact</h2>
+                        </div>
+                        <ul class="simple-list">
+                            <li>
+                                <span>Email → AI reply → CRM note</span>
+                                <span class="badge badge-green">High impact</span>
+                            </li>
+                            <li>
+                                <span>Support chat intent routing</span>
+                                <span class="badge badge-blue">Stable</span>
+                            </li>
+                            <li>
+                                <span>Daily sales summary to Slack</span>
+                                <span class="badge badge-purple">Medium impact</span>
+                            </li>
+                            <li>
+                                <span>Lead qualification via website form</span>
+                                <span class="badge">Experimental</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+
+            <!-- WORKFLOWS VIEW -->
+            <section id="view-workflows" class="view" aria-label="Workflows">
+                <div class="workflows-layout">
+                    <!-- Left list -->
+                    <div class="workflows-list">
+                        <h2>Workflows</h2>
+                        <p class="view-hint">Click a workflow to inspect its steps.</p>
+
+                        <article class="workflow-card" data-flow-id="email">
+                            <p class="workflow-label">Automation · Email</p>
+                            <h3>Reply to new leads with AI</h3>
+                            <p class="workflow-sub">
+                                New inbound lead emails are answered with a personalized AI draft,
+                                then logged into the CRM.
+                            </p>
+                            <div class="workflow-meta">
+                                <span class="pill pill-green">Active</span>
+                                <span class="meta-text">Trigger: New email · 2 AI steps · 1 action</span>
+                            </div>
+                        </article>
+
+                        <article class="workflow-card" data-flow-id="support">
+                            <p class="workflow-label">Automation · Support</p>
+                            <h3>Route support tickets by intent</h3>
+                            <p class="workflow-sub">
+                                AI classifies new tickets and routes to billing, technical or sales queues.
+                            </p>
+                            <div class="workflow-meta">
+                                <span class="pill pill-blue">Active</span>
+                                <span class="meta-text">Trigger: New ticket · 1 AI step · 3 branches</span>
+                            </div>
+                        </article>
+
+                        <article class="workflow-card" data-flow-id="summary">
+                            <p class="workflow-label">Automation · Reporting</p>
+                            <h3>Daily sales summary to Slack</h3>
+                            <p class="workflow-sub">
+                                At 18:00, AI generates a natural language summary of the day’s sales.
+                            </p>
+                            <div class="workflow-meta">
+                                <span class="pill">Active</span>
+                                <span class="meta-text">Trigger: Schedule · 1 AI step · Slack message</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Right builder -->
+                    <div class="workflow-builder glass-card">
+                        <div class="builder-header">
+                            <h2 id="builder-title">Select a workflow</h2>
+                            <p id="builder-subtitle">
+                                Pick a workflow on the left to see its structure and run a demo execution.
+                            </p>
+                        </div>
+
+                        <div id="builder-graph" class="builder-graph builder-graph-empty">
+                            <p class="empty-state">
+                                No workflow selected.<br>
+                                Choose one from the left panel.
+                            </p>
+                        </div>
+
+                        <div class="builder-footer">
+                            <button id="run-demo-btn" class="primary-btn secondary" type="button">
+                                ▶ Run demo execution
+                            </button>
+                            <span class="hint-text">
+                                This runs a fake execution and records a log entry only.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOGS VIEW -->
+            <section id="view-logs" class="view" aria-label="Run logs">
+                <div class="panel glass-card">
+                    <div class="panel-header">
+                        <h2>Recent executions</h2>
+                        <span class="pill">Demo data</span>
+                    </div>
+                    <table class="logs-table">
+                        <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Workflow</th>
+                            <th>Status</th>
+                            <th>Details</th>
+                        </tr>
+                        </thead>
+                        <tbody id="logs-body">
+                        <tr>
+                            <td>10:12:03</td>
+                            <td>Reply to new leads with AI</td>
+                            <td><span class="badge badge-green">Success</span></td>
+                            <td>3 emails processed · 3 replies drafted</td>
+                        </tr>
+                        <tr>
+                            <td>09:45:18</td>
+                            <td>Daily sales summary to Slack</td>
+                            <td><span class="badge badge-green">Success</span></td>
+                            <td>Summary posted to #sales channel</td>
+                        </tr>
+                        <tr>
+                            <td>09:02:41</td>
+                            <td>Route support tickets by intent</td>
+                            <td><span class="badge badge-purple">Partial</span></td>
+                            <td>12 tickets routed · 2 flagged for review</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SETTINGS VIEW -->
+            <section id="view-settings" class="view" aria-label="Settings">
+                <div class="panel settings-panel glass-card">
+                    <div class="panel-header">
+                        <h2>AI configuration</h2>
+                        <span class="pill">Demo</span>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="form-field">
+                            <label for="model-select">Model</label>
+                            <select id="model-select">
+                                <option>gpt-4o (recommended)</option>
+                                <option>gpt-4o-mini</option>
+                                <option>gpt-4.1</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="temperature-range">Temperature</label>
+                            <input id="temperature-range" type="range" min="0" max="100" value="30">
+                            <div class="slider-labels">
+                                <span>More precise</span>
+                                <span>More creative</span>
+                            </div>
+                        </div>
+
+                        <div class="form-field full-width">
+                            <label for="system-prompt">System prompt</label>
+                            <textarea id="system-prompt" rows="4">
+You are an AI automation engine. Be reliable, concise and safe. Never invent data.
+Help operators understand what happened in each workflow run.
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="settings-footer">
+                        <button class="primary-btn" type="button">Save demo settings</button>
+                        <span class="hint-text">
+                            Settings are not persisted in this demo. This is a portfolio preview only.
+                        </span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
